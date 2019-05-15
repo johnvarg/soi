@@ -8,7 +8,7 @@ import 'package:soi/ui/card_more_shape.dart';
 
 class CardMoreWidget extends StatefulWidget {
   final String image;
-  final String foodName;
+  final String kitchenName;
   final String foodDetail;
   final String foodTime;
   final String status;
@@ -22,7 +22,7 @@ class CardMoreWidget extends StatefulWidget {
   CardMoreWidget(
       {this.image,
       this.foodDetail,
-      this.foodName,
+      this.kitchenName,
       this.vote,
       this.foodTime,
       this.status,
@@ -101,7 +101,7 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                         width: 45,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.lightBlue,
+                          color: Colors.green[800],
                         ),
                         child: widget.heartIcon,
                       ),
@@ -200,10 +200,13 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  Icon(
-                                    FontAwesomeIcons.clock,
-                                    size: 12,
-                                    color: Colors.white,
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 5.0),
+                                    child: Icon(
+                                      FontAwesomeIcons.clock,
+                                      size: 12,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   Text(
                                     widget.foodTime,
@@ -220,7 +223,7 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    /*Positioned(
                       left: 0,
                       top: 0,
                       child: ClipPath(
@@ -247,7 +250,7 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                           ),
                         ),
                       ),
-                    )
+                    )*/
                   ],
                 ),
               ),
@@ -264,7 +267,7 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              widget.foodName,
+                              widget.kitchenName,
                               style: TextStyle(
                                   fontSize: 18,
                                   fontFamily: "Poppins",
@@ -275,7 +278,7 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontFamily: "Poppins",
-                                  color: Colors.grey[350],
+                                  color: Colors.grey,
                                   fontWeight: FontWeight.normal),
                             ),
                           ],
@@ -317,7 +320,7 @@ class CardMoreWidgetState extends State<CardMoreWidget> {
                   Expanded(
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.lightBlue,
+                              color: Colors.green[800],
                               borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10))),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

@@ -53,7 +53,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       key: _scaffoldKey,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildFloatingActionButton(),
+      //floatingActionButton: buildFloatingActionButton(),
       bottomNavigationBar: buildBottomNavigationBar(),
       endDrawer: Stack(
         children: <Widget>[
@@ -70,7 +70,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Colors.green[800],
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                         ),
@@ -85,7 +85,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.lightBlue,
+                        color: Colors.green,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                         ),
@@ -181,8 +181,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.blue,
-                  Colors.lightBlue,
+                  Colors.green[800],
+                  Colors.green,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -243,61 +243,10 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(left: 22.0, bottom: 10),
-                      child: Text(
-                        "Featured Kitchens in Atlanta, GA",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: 10,
-                      ),
-                      child: Container(
-                        height: 280,
-                        child: NotificationListener(
-                          onNotification: (overscroll) {
-                            overscroll.disallowGlow();
-                          },
-                          child: ListView.builder(
-                            padding: EdgeInsets.only(right: 20),
-                            scrollDirection: Axis.horizontal,
-                            physics: BouncingScrollPhysics(),
-                            itemCount: AppImages.image1.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return CardListWidget(
-                                heartIcon: LikeButton(
-                                  key: ObjectKey(index.toString()),
-                                  width: 70,
-                                ),
-                                image: AppImages.image1[index],
-                                foodDetail: "Food title/description",
-                                foodName: "Kitchen Name",
-                                vote: 4.5,
-                                foodTime: "May 14",
-                                distance: 3.4,
-                                price: 7.99,
-                                quantity: 5,
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.grey,
-                      height: 1.5,
-                    ),
-                    Padding(
                       padding: const EdgeInsets.only(
                           top: 20, left: 22.0, bottom: 10),
                       child: Text(
-                        "More Kitchens in Atlanta, GA",
+                        "Kitchens in Atlanta, GA",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -308,8 +257,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     CardMoreWidget(
                         image: AppImages.image1[1],
-                        foodDetail: "Desert - Fast Food - Alcohol",
-                        foodName: "Cafe De Ankara",
+                        foodDetail: "Dish name here",
+                        kitchenName: "Cafe De Ankara",
                         vote: 4.5,
                         status: "CLOSED",
                         statusColor: Colors.red,
@@ -325,8 +274,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         width: 70,
                       ),
                       image: AppImages.image1[0],
-                      foodDetail: "Desert - Fast Food - Alcohol",
-                      foodName: "Cafe De NewYork",
+                      foodDetail: "Dish name here",
+                      kitchenName: "Cafe De NewYork",
                       vote: 4.5,
                       status: "OPEN",
                       statusColor: Colors.green,
@@ -335,12 +284,40 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       price: 7.99,
                       quantity: 5,
                     ),
+                    CardMoreWidget(
+                        image: AppImages.image1[1],
+                        foodDetail: "Dish name here",
+                        kitchenName: "Cafe De Ankara",
+                        vote: 4.5,
+                        status: "CLOSED",
+                        statusColor: Colors.red,
+                        heartIcon: LikeButton(
+                          width: 70,
+                        ),
+                        foodTime: "May 14",
+                        distance: 3.4,
+                        price: 7.99,
+                        quantity: 5),
+                    CardMoreWidget(
+                        image: AppImages.image1[1],
+                        foodDetail: "Dish name here",
+                        kitchenName: "Cafe De Ankara",
+                        vote: 4.5,
+                        status: "CLOSED",
+                        statusColor: Colors.red,
+                        heartIcon: LikeButton(
+                          width: 70,
+                        ),
+                        foodTime: "May 14",
+                        distance: 3.4,
+                        price: 7.99,
+                        quantity: 5),
                   ],
                 )
               : _tabbarIndex == 1
-                  ? Text('Shopping Cart Screen')
+                  ? Text('Sell/Kitchen Screen')
                   : _tabbarIndex == 2
-                      ? Text('Store/Kitchen Screen')
+                      ? Text('Order Screen')
                       : Text('Messages Screen'),
         ),
       ),
@@ -365,8 +342,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.blue,
-                Colors.lightBlue.withOpacity(0.8),
+                Colors.green[800],
+                Colors.green,
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -374,7 +351,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             borderRadius: BorderRadius.circular(50),
             boxShadow: [
               BoxShadow(
-                  color: Colors.blue, blurRadius: 12, offset: Offset(0, 5)),
+                  color: Colors.green[800], blurRadius: 12, offset: Offset(0, 5)),
             ]),
         child: Icon(
           Icons.fastfood,
@@ -389,29 +366,30 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return SafeArea(
       child: TabBar(
           onTap: onTabTapped,
-          labelColor: Colors.blue,
+          labelColor: Colors.green[800],
           unselectedLabelColor: Colors.black.withOpacity(0.55),
-          indicatorColor: Colors.blue,
+          indicatorColor: Colors.green[800],
           indicatorWeight: 3,
-          indicator: UnderlineTabIndicator(
-              insets: EdgeInsets.only(bottom: 46),
-              borderSide: BorderSide(color: Colors.blue, width: 3)),
           indicatorSize: TabBarIndicatorSize.tab,
           controller: _tabController,
           tabs: [
             Tab(
               icon: Icon(
-                FontAwesomeIcons.home,
+                Icons.local_offer,
               ),
-            ),
-            Tab(
-              icon: Icon(FontAwesomeIcons.shoppingCart),
+              text: 'Buy',
             ),
             Tab(
               icon: Icon(FontAwesomeIcons.store),
+              text: 'Sell',
             ),
             Tab(
-              icon: Icon(Icons.chat_bubble),
+              icon: Icon(Icons.assignment),
+              text: 'Order',
+            ),
+            Tab(
+              icon: Icon(Icons.message),
+              text: 'Message',
             ),
           ]),
     );
@@ -453,7 +431,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Text(
                   "List View",
                   style: TextStyle(
-                    color: selectedColor ? Colors.blue : Colors.grey,
+                    color: selectedColor ? Colors.green[800] : Colors.grey,
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
                     fontFamily: "Poppins",
@@ -481,7 +459,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Text(
                   "Map View",
                   style: TextStyle(
-                    color: selectedColor ? Colors.grey : Colors.blue,
+                    color: selectedColor ? Colors.grey : Colors.green[800],
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
                     fontFamily: "Poppins",
