@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:soi/constant/images.dart';
-import 'package:soi/ui/card_more_widget.dart';
-import 'package:soi/ui/card_widget.dart';
-import 'package:soi/ui/home_page_custom_shape.dart';
-import 'package:soi/ui/likebutton/LikeButton.dart';
+import 'package:soi/widgets/card_more_widget.dart';
+import 'package:soi/widgets/card_widget.dart';
+import 'package:soi/widgets/home_page_custom_shape.dart';
+import 'package:soi/widgets/likebutton/LikeButton.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,6 +19,34 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TabController _tabController;
   PageController _pageController;
+
+  final appBar = new AppBar(
+    backgroundColor: Colors.green[800],
+    centerTitle: false,
+    actions: <Widget>[
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 0.0),
+        child: new IconButton(
+          iconSize: 30.0,
+          icon: new Icon(Icons.search),
+          onPressed: () {},
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: FloatingActionButton(
+          backgroundColor: Colors.white,
+          elevation: 5.0,
+          onPressed: () {},
+          child: CircleAvatar(
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.white,
+            maxRadius: 25.0,
+          ),
+        ),
+      ),
+    ],
+  );
 
   int _tabbarIndex = 0;
   bool selectedColor = true;
@@ -50,73 +78,67 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
+
+    final appBar = new AppBar(
+      backgroundColor: Colors.green[800],
+      centerTitle: false,
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+              elevation: 5.0,
+              onPressed: () {},
+              child: CircleAvatar(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.white,
+                maxRadius: 25.0,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    prefixIcon: new IconButton(
+                      icon: new Icon(Icons.search),
+                      onPressed: () {},
+                    ),
+                    fillColor: Colors.white,
+                    filled: true,
+                    border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.tune,
+              size: 28,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              print('Filter Pressed');
+            },
+          ),
+        ],
+      ),
+      actions: null
+    );
+
     return Scaffold(
       key: _scaffoldKey,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //floatingActionButton: buildFloatingActionButton(),
       bottomNavigationBar: buildBottomNavigationBar(),
-      endDrawer: Stack(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(canvasColor: Colors.transparent),
-            child: Container(
-              width: 80,
-              height: 150,
-              child: Drawer(
-                elevation: 5,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.green[800],
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                        ),
-                      ),
-                      width: 80,
-                      height: 75,
-                      child: Icon(
-                        Icons.shopping_cart,
-                        color: Colors.white,
-                        size: 32,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                        ),
-                      ),
-                      height: 75,
-                      width: 80,
-                      child: Icon(
-                        Icons.contact_phone,
-                        color: Colors.white,
-                        size: 32,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            right: 42,
-            top: -10,
-            child: IconButton(
-              icon: Icon(
-                Icons.close,
-                color: Colors.white,
-                size: 16,
-              ),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ),
-        ],
-      ),
+      appBar: appBar,
       body: PageView(
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),
@@ -133,7 +155,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SingleChildScrollView(
                         child: Column(
                           children: <Widget>[
-                            buildHeaderStack(_media),
+                            //buildHeaderStack(_media),
                             buildHomeMainContainer(),
                           ],
                         ),
@@ -245,27 +267,32 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     Padding(
                       padding: const EdgeInsets.only(
                           top: 20, left: 22.0, bottom: 10),
-                      child: Text(
-                        "Kitchens in Atlanta, GA",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w700,
-                        ),
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.close),
+                          Text(
+                            "\$\$\$ and below, 3 star and above, Kerala",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     CardMoreWidget(
                         image: AppImages.image1[1],
                         foodDetail: "Dish name here",
-                        kitchenName: "Cafe De Ankara",
+                        kitchenName: "ABC Kitchen Name",
                         vote: 4.5,
                         status: "CLOSED",
                         statusColor: Colors.red,
                         heartIcon: LikeButton(
                           width: 70,
                         ),
-                        foodTime: "May 14",
+                        foodTime: "May 13th",
                         distance: 3.4,
                         price: 7.99,
                         quantity: 5),
@@ -279,7 +306,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       vote: 4.5,
                       status: "OPEN",
                       statusColor: Colors.green,
-                      foodTime: "May 14",
+                      foodTime: "May 13th, 5 to 7 PM",
                       distance: 3.4,
                       price: 7.99,
                       quantity: 5,
@@ -294,7 +321,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         heartIcon: LikeButton(
                           width: 70,
                         ),
-                        foodTime: "May 14",
+                        foodTime: "May 13th, 5 to 7 PM",
                         distance: 3.4,
                         price: 7.99,
                         quantity: 5),
@@ -308,7 +335,35 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         heartIcon: LikeButton(
                           width: 70,
                         ),
-                        foodTime: "May 14",
+                        foodTime: "May 13th, 5 to 7 PM",
+                        distance: 3.4,
+                        price: 7.99,
+                        quantity: 5),
+                    CardMoreWidget(
+                        image: AppImages.image1[1],
+                        foodDetail: "Dish name here",
+                        kitchenName: "Cafe De Ankara",
+                        vote: 4.5,
+                        status: "CLOSED",
+                        statusColor: Colors.red,
+                        heartIcon: LikeButton(
+                          width: 70,
+                        ),
+                        foodTime: "May 13th, 5 to 7 PM",
+                        distance: 3.4,
+                        price: 7.99,
+                        quantity: 5),
+                    CardMoreWidget(
+                        image: AppImages.image1[1],
+                        foodDetail: "Dish name here",
+                        kitchenName: "Cafe De Ankara",
+                        vote: 4.5,
+                        status: "CLOSED",
+                        statusColor: Colors.red,
+                        heartIcon: LikeButton(
+                          width: 70,
+                        ),
+                        foodTime: "May 13th, 5 to 7 PM",
                         distance: 3.4,
                         price: 7.99,
                         quantity: 5),
@@ -351,7 +406,9 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             borderRadius: BorderRadius.circular(50),
             boxShadow: [
               BoxShadow(
-                  color: Colors.green[800], blurRadius: 12, offset: Offset(0, 5)),
+                  color: Colors.green[800],
+                  blurRadius: 12,
+                  offset: Offset(0, 5)),
             ]),
         child: Icon(
           Icons.fastfood,

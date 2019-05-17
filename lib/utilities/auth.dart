@@ -1,34 +1,23 @@
 import 'dart:async';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class BaseAuth {
     Future<String> currentUser();
     Future<String> emailPasswordSignIn(String email, String password);
-    Future<FirebaseUser> googleSignIn();
+    //Future<FirebaseUser> googleSignIn();
     Future<String> createUser(String email, String password);
     Future<void> signOut();
     Future<void> sendPasswordResetEmail(String emailAddress);
 }
 
-class Auth implements BaseAuth {
+/*class Auth implements BaseAuth {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
     final GoogleSignIn _googleSignIn = GoogleSignIn();
 
     bool signedInGoogle = false;
 
     Future<String> emailPasswordSignIn(String email, String password) async {
-        /*FirebaseUser user;
-
-    try{
-      user = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-    }catch(error){
-
-      print('Sign In Error: ' + error.toString());
-
-      return 'Error: Invalid username / password';
-    }*/
 
         try{
 
@@ -91,3 +80,4 @@ class Auth implements BaseAuth {
     }
 
 }
+*/

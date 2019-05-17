@@ -37,13 +37,13 @@ dependencies:
   flutter_advanced_networkimage: 0.4.15
 
   # https://pub.dev/packages/firebase_auth
-  firebase_auth: 0.6.6
+  #firebase_auth: 0.6.6
 
   # https://pub.dev/packages/google_sign_in
-  google_sign_in: 3.2.1
+  #google_sign_in: 3.2.1
 
   # https://pub.dev/packages/cloud_firestore
-  cloud_firestore: ^0.8.2+3
+  #cloud_firestore: ^0.8.2+3
 
 dev_dependencies:
   flutter_test:

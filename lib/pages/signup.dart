@@ -14,12 +14,12 @@ class SignUpPage extends StatefulWidget {
   final VoidCallback onSignIn;
 
   Future<bool> _loginWithGoogle() async {
-    final api = await auth.googleSignIn();
+    /*final api = await auth.googleSignIn();
     if (api != null) {
       return true;
     } else {
       return false;
-    }
+    }*/
   }
 
   Future<bool> _createUserEmailPassword(String email, String password) async {
@@ -277,7 +277,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fillColor: Colors.white,
                 filled: true,
                 hintText: 'Email',
-                contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(32.0)),
               ),

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "154804229430",
+    "firebase_url": "https://soi-dev.firebaseio.com",
+    "project_id": "soi-dev",
+    "storage_bucket": "soi-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154804229430:android:c5d0b25daa411447",
+        "android_client_info": {
+          "package_name": "com.soi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154804229430-a3cbruh2tl2gai14sfbtrr976p3v5lqb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.soi",
+            "certificate_hash": "84e815233357abee22b1d8b18a58e743b9ad5d3d"
+          }
+        },
+        {
+          "client_id": "154804229430-9543k95de1t5rgp772kfevcjletehr87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYsqthXM99ECQbsxXtjo1aC5HGPS_nd4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154804229430-9543k95de1t5rgp772kfevcjletehr87.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154804229430-t6p4lisvphpm9qbn1o2acdh2n36g23lk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.soi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

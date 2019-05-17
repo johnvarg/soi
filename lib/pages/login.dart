@@ -15,13 +15,13 @@ class LoginPage extends StatefulWidget {
 
   Future<bool> _loginWithGoogle() async {
     try {
-      final api = await auth.googleSignIn();
+      /*final api = await auth.googleSignIn();
 
       if (api != null) {
         return true;
       } else {
         return false;
-      }
+      }*/
     } catch (error) {
       print('Error: ' + error.toString());
       return false;
@@ -336,7 +336,7 @@ class _LoginPageState extends State<LoginPage> {
                                 filled: true,
                                 hintText: 'Email',
                                 contentPadding:
-                                    EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                                    EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(32.0)),
                               ),
